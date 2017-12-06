@@ -1,0 +1,30 @@
+########################################################################
+### ignore local configuration and framework
+########################################################################
+
+**/node_modules
+**/*.log
+
+**/*.pyc
+**/__pycache__
+**/.Rhistory
+**/.ipynb_checkpoints
+**/spark-warehouse
+
+# setuptools, python egg metadata
+/dist/
+/*.egg-info
+
+# sbt scala
+**/target/
+
+misc/
+TemplateData
+Release
+python-api/.uwsgi.env
+python-api/static
+node-app/static
+*.sql
+*.txt
+0
+

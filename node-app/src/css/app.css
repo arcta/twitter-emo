@@ -1,0 +1,37 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+svg {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    font: 0.8em sans-serif;
+}
+
+text {
+    fill: black;
+}
+
+circle {
+    shape-rendering: optimizeQuality;
+}
+
+rect {
+    shape-rendering: crispEdges;
+}
+
+path {
+    fill: none;
+    stroke: gray;
+    stroke-width: 1px;
+    shape-rendering: crispEdges;
+}

@@ -1,0 +1,26 @@
+{
+    "name": "mining-stream",
+    "version": "0.1.0",
+    "scripts": {
+        "start": "node app.js"
+    },
+    "dependencies": {
+        "express": "*",
+        "express-handlebars": "*",
+        "serve-favicon": "*",
+        "serve-static": "*",
+        "compression": "*",
+        "body-parser": "*",
+        "browserify": "*",
+        "clean-css": "*",
+        "uglifyify": "*",
+        "intel": "*",
+        "redis": "*",
+        "socket.io": "*",
+        "cors": "*"
+    },
+    "devDependencies": {},
+    "engines": {
+        "node": ">=8.0.0"
+    }
+}

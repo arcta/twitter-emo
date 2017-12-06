@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Unity WebGL Player | {{ title }}</title>
+    <link rel="stylesheet" href="TemplateData/style.css">
+    <link rel="shortcut icon" href="TemplateData/favicon.ico" />
+    <script src="TemplateData/UnityProgress.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>{{{ js }}}</script>
+  </head>
+  <body class="template">
+{{{ body }}}
+    <p class="footer">&laquo; created with <a href="http://unity3d.com/" title="Go to unity3d.com">Unity</a> &raquo;</p>
+    <script type='text/javascript'>
+        var Module = {
+            TOTAL_MEMORY: 268435456,
+            errorhandler: null,
+            compatibilitycheck: null,
+            dataUrl: "Release/Test.data",
+            codeUrl: "Release/Test.js",
+            memUrl: "Release/Test.mem",
+        };
+    </script>
+    <script src="Release/UnityLoader.js"></script>
+  </body>
+</html>
