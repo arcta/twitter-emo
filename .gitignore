@@ -18,6 +18,7 @@
 # sbt scala
 **/target/
 
+/data/
 misc/
 TemplateData
 Release
