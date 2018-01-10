@@ -10,6 +10,13 @@ def get_span():
     return (datetime.now() - timedelta(days = 30))\
                     .strftime('%Y-%m')
 
+def interval(days):
+    return text('NOW() - INTERVAL {} DAY'.format(days))
+
+def current():
+    return text('CURDATE()')
+    
+    
 
 class EmoModel(sql.Model):
     __tablename__ = 'emoji'
@@ -181,12 +188,12 @@ mysql> describe geo_sent;
 
     @classmethod
     def get_range(model, days):
-        interval = text('NOW() - INTERVAL {} DAY'.format(days))
         return sql.session.query(model.span, model.sentiment, GeoModel.country)\
-            .filter(model.span >= interval)\
+            .filter(model.span >= interval(days + 1))\
+            .filter(model.span < current())\
             .filter(model.country_code == GeoModel.alpha2)\
             .order_by(GeoModel.country.asc())\
-            .order_by(model.span.desc())\
+            .order_by(model.span.asc())\
             .all()
 
 
@@ -212,12 +219,12 @@ mysql> describe geo_job_stats;
 
     @classmethod
     def get_range(model, days):
-        interval = text('NOW() - INTERVAL {} DAY'.format(days))
         return sql.session.query(GeoModel.country, model.span, model.total)\
-            .filter(model.span >= interval)\
+            .filter(model.span >= interval(days + 1))\
+            .filter(model.span < current())\
             .filter(model.country_code == GeoModel.alpha2)\
             .order_by(model.country_code.asc())\
-            .order_by(model.span.desc())\
+            .order_by(model.span.asc())\
             .all()
             
             
@@ -246,13 +253,13 @@ mysql> describe emo_stats;
 
     @classmethod
     def get_range(model, days):
-        interval = text('NOW() - INTERVAL {} DAY'.format(days))
         return sql.session.query(EmoModel.description, model.code,
                                  GeoModel.country, model.country_code,
                                  model.span, model.total)\
-            .filter(model.span >= interval)\
+            .filter(model.span >= interval(days + 1))\
+            .filter(model.span < current())\
             .filter(model.country_code == GeoModel.alpha2)\
             .filter(model.code == EmoModel.code)\
             .order_by(model.country_code.asc())\
-            .order_by(model.span.desc())\
+            .order_by(model.span.asc())\
             .all()

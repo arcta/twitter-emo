@@ -45,7 +45,6 @@ if  __name__ =='__main__':
             for line in source.readlines():
                 data = line.strip().split()
                 emoji = { data[0]:float(data[1]) }
-                print(data)
 
         stopwords = { word:1 for word in nltk.corpus.stopwords.words('english') }
         for lang in ['danish', 'dutch', 'finnish', 'french', 'german', 'hungarian', 'italian',
