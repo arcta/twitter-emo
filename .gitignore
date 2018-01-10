@@ -18,6 +18,7 @@
 # sbt scala
 **/target/
 
+README.ipynb
 /data/
 misc/
 TemplateData
